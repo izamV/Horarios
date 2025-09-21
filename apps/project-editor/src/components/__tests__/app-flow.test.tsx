@@ -60,4 +60,27 @@ describe('flujo completo del asistente', () => {
     await user.click(screen.getByRole('button', { name: 'Guardar como…' }));
     expect(downloadFile).toHaveBeenCalled();
   });
+
+  it('permite reajustar la fecha y la hora base sin errores', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    await user.click(screen.getByText('Nuevo', { selector: 'button' }));
+
+    await user.click(screen.getByRole('button', { name: 'Cliente' }));
+
+    const schedule = await screen.findByLabelText('Horario de Cliente principal');
+    const dateInput = within(schedule).getByLabelText('Fecha base');
+    const timeInput = within(schedule).getByLabelText('Hora inicial');
+
+    await user.clear(dateInput);
+    await user.type(dateInput, '2024-05-03');
+
+    await user.clear(timeInput);
+    await user.type(timeInput, '10:30');
+
+    await user.click(within(schedule).getAllByText('+15 min')[0]);
+
+    expect(await within(schedule).findByText(/10:30/)).toBeInTheDocument();
+  });
 });

@@ -28,16 +28,20 @@ export const ScheduleEditor: FC<Props> = ({ ownerId, ownerRol, ownerNombre }) =>
     [project?.sesiones, ownerId, ownerRol]
   );
 
-  const [fechaBase, setFechaBase] = useState(() => project ? project.fechas.inicio.slice(0, 10) : '');
-  const [horaBase, setHoraBase] = useState('09:00');
-  const [nextStart, setNextStart] = useState(() => (fechaBase ? fromDateTimeInputs(fechaBase, horaBase) : ''));
+  const defaultFecha = project ? project.fechas.inicio.slice(0, 10) : '';
+  const defaultHora = '09:00';
+  const [fechaBase, setFechaBase] = useState(defaultFecha);
+  const [horaBase, setHoraBase] = useState(defaultHora);
+  const [nextStart, setNextStart] = useState(() => (defaultFecha ? fromDateTimeInputs(defaultFecha, defaultHora) : ''));
 
   if (!project) {
     return <p className="notice">Necesitas crear un proyecto para editar horarios.</p>;
   }
 
   const handleDurationClick = (minutes: number) => {
-    if (!fechaBase) return;
+    if (!fechaBase || !horaBase) {
+      return;
+    }
     const startISO = nextStart || fromDateTimeInputs(fechaBase, horaBase);
     const sessions = appendSequentialSessions({ startISO, durations: [minutes], ownerId, ownerRol });
     if (sessions.length > 0) {
@@ -118,10 +122,15 @@ export const ScheduleEditor: FC<Props> = ({ ownerId, ownerRol, ownerNombre }) =>
         <div className="controls-row" role="group" aria-label="Configuración de inicio">
           <label>
             Fecha base
-            <input type="date" value={fechaBase} onChange={(event) => {
-              setFechaBase(event.target.value);
-              setNextStart(fromDateTimeInputs(event.target.value, horaBase));
-            }} />
+            <input
+              type="date"
+              value={fechaBase}
+              onChange={(event) => {
+                const value = event.target.value;
+                setFechaBase(value);
+                setNextStart(value && horaBase ? fromDateTimeInputs(value, horaBase) : '');
+              }}
+            />
           </label>
           <label>
             Hora inicial
@@ -129,8 +138,9 @@ export const ScheduleEditor: FC<Props> = ({ ownerId, ownerRol, ownerNombre }) =>
               type="time"
               value={horaBase}
               onChange={(event) => {
-                setHoraBase(event.target.value);
-                setNextStart(fromDateTimeInputs(fechaBase, event.target.value));
+                const value = event.target.value;
+                setHoraBase(value);
+                setNextStart(fechaBase && value ? fromDateTimeInputs(fechaBase, value) : '');
               }}
             />
           </label>
