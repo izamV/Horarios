@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
+  <rect width="640" height="360" fill="#ffffff" stroke="#143d59" stroke-width="4" />
+  <text x="320" y="44" text-anchor="middle" font-size="28" fill="#143d59">Flujo de importación y exportación</text>
+  <rect x="120" y="120" width="160" height="100" rx="12" fill="#d6e4f0" />
+  <text x="200" y="150" text-anchor="middle" font-size="18" fill="#143d59">Abrir…</text>
+  <text x="200" y="180" text-anchor="middle" font-size="14" fill="#4a7089">Cargar .eventplan.json</text>
+  <rect x="360" y="120" width="160" height="100" rx="12" fill="#1b76d2" opacity="0.9" />
+  <text x="440" y="150" text-anchor="middle" font-size="18" fill="#ffffff">Guardar como…</text>
+  <text x="440" y="180" text-anchor="middle" font-size="14" fill="#f1f6fb">Descargar JSON validado</text>
+  <polygon points="280,170 360,170 360,180 280,180" fill="#143d59" />
+  <text x="320" y="240" text-anchor="middle" font-size="14" fill="#4a7089">Autosave continuo en localStorage</text>
+</svg>

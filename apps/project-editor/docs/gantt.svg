@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
+  <rect width="640" height="360" fill="#ffffff" stroke="#143d59" stroke-width="4" />
+  <text x="320" y="36" text-anchor="middle" font-size="28" fill="#143d59">Vista de horarios tipo Gantt</text>
+  <line x1="100" y1="90" x2="560" y2="90" stroke="#9ec1e6" stroke-width="2" stroke-dasharray="6 6" />
+  <line x1="100" y1="150" x2="560" y2="150" stroke="#9ec1e6" stroke-width="2" stroke-dasharray="6 6" />
+  <line x1="100" y1="210" x2="560" y2="210" stroke="#9ec1e6" stroke-width="2" stroke-dasharray="6 6" />
+  <text x="60" y="95" font-size="16" fill="#143d59" text-anchor="end">Cliente</text>
+  <text x="60" y="155" font-size="16" fill="#143d59" text-anchor="end">Staff 1</text>
+  <text x="60" y="215" font-size="16" fill="#143d59" text-anchor="end">Staff 2</text>
+  <rect x="120" y="75" width="180" height="30" rx="6" fill="#1b76d2" opacity="0.85" />
+  <text x="210" y="95" font-size="14" fill="#ffffff" text-anchor="middle">Reunión inicial</text>
+  <rect x="320" y="135" width="150" height="30" rx="6" fill="#f29f05" opacity="0.85" />
+  <text x="395" y="155" font-size="14" fill="#ffffff" text-anchor="middle">Montaje</text>
+  <rect x="260" y="195" width="220" height="30" rx="6" fill="#17a398" opacity="0.85" />
+  <text x="370" y="215" font-size="14" fill="#ffffff" text-anchor="middle">Prueba de sonido</text>
+  <text x="120" y="280" font-size="14" fill="#4a7089">Filtros por persona · Zoom con atajos + / -</text>
+</svg>

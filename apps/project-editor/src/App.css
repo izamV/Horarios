@@ -1,0 +1,326 @@
+:root {
+  color-scheme: light dark;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.4;
+}
+
+body {
+  margin: 0;
+  background-color: #f5f5f5;
+  color: #222;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background: #143d59;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.app-main {
+  flex: 1;
+  padding: 1rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid.two {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.tab-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tab-button {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: #ddd;
+}
+
+.tab-button.active {
+  background: #143d59;
+  color: #fff;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: #e0e0e0;
+}
+
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.schedule-session {
+  border: 1px solid #c5d6e2;
+  border-radius: 12px;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  background: #f8fbff;
+}
+
+.schedule-session header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.schedule-session form {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.material-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.material-row {
+  display: grid;
+  grid-template-columns: 1fr 80px auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.map-container {
+  position: relative;
+  height: 420px;
+  background: #eef5fb;
+  border-radius: 12px;
+  border: 1px solid #c5d6e2;
+  overflow: hidden;
+}
+
+.map-svg {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(20,61,89,0.08), rgba(255,255,255,0.8));
+}
+
+.map-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.notice {
+  background: #fff0c2;
+  border: 1px solid #f4c542;
+  border-radius: 8px;
+  padding: 0.75rem;
+  color: #5f4a00;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  padding: 0.5rem;
+  border: 1px solid #ccd6dd;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+label {
+  display: grid;
+  gap: 0.25rem;
+  font-weight: 600;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+legend {
+  font-weight: 700;
+}
+
+.stepper {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.stepper button {
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  background: #d6e4f0;
+}
+
+.stepper button.active {
+  background: #143d59;
+  color: #fff;
+}
+
+button.primary {
+  background: #1b76d2;
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+}
+
+button.danger {
+  background: #d23f3f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+}
+
+button.ghost {
+  background: transparent;
+  border: 1px solid #143d59;
+  color: #143d59;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+}
+
+.badge.success {
+  background: #d9f7be;
+  color: #27632a;
+}
+
+.badge.warning {
+  background: #fff4e5;
+  color: #8a6d3b;
+}
+
+.gantt-container {
+  overflow-x: auto;
+  border: 1px solid #c5d6e2;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.gantt-grid {
+  position: relative;
+  min-width: 720px;
+  padding: 1rem;
+}
+
+.gantt-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.gantt-label {
+  flex: 0 0 140px;
+  font-weight: 600;
+}
+
+.gantt-track {
+  position: relative;
+  flex: 1;
+  height: 48px;
+  background: #eef5fb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.gantt-block {
+  position: absolute;
+  top: 4px;
+  height: 40px;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+  color: #fff;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.gantt-axis {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+
+.home-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.home-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.home-card button {
+  margin-top: 1rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #dde6ee;
+  margin: 1.5rem 0;
+}
