@@ -37,7 +37,9 @@ export const ScheduleEditor: FC<Props> = ({ ownerId, ownerRol, ownerNombre }) =>
   }
 
   const handleDurationClick = (minutes: number) => {
-    if (!fechaBase) return;
+    if (!fechaBase || !horaBase) {
+      return;
+    }
     const startISO = nextStart || fromDateTimeInputs(fechaBase, horaBase);
     const sessions = appendSequentialSessions({ startISO, durations: [minutes], ownerId, ownerRol });
     if (sessions.length > 0) {
@@ -109,10 +111,19 @@ export const ScheduleEditor: FC<Props> = ({ ownerId, ownerRol, ownerNombre }) =>
         <div className="controls-row" role="group" aria-label="Configuración de inicio">
           <label>
             Fecha base
-            <input type="date" value={fechaBase} onChange={(event) => {
-              setFechaBase(event.target.value);
-              setNextStart(fromDateTimeInputs(event.target.value, horaBase));
-            }} />
+            <input
+              type="date"
+              value={fechaBase}
+              onChange={(event) => {
+                const value = event.target.value;
+                setFechaBase(value);
+                if (value && horaBase) {
+                  setNextStart(fromDateTimeInputs(value, horaBase));
+                } else {
+                  setNextStart('');
+                }
+              }}
+            />
           </label>
           <label>
             Hora inicial
@@ -120,8 +131,13 @@ export const ScheduleEditor: FC<Props> = ({ ownerId, ownerRol, ownerNombre }) =>
               type="time"
               value={horaBase}
               onChange={(event) => {
-                setHoraBase(event.target.value);
-                setNextStart(fromDateTimeInputs(fechaBase, event.target.value));
+                const value = event.target.value;
+                setHoraBase(value);
+                if (fechaBase && value) {
+                  setNextStart(fromDateTimeInputs(fechaBase, value));
+                } else {
+                  setNextStart('');
+                }
               }}
             />
           </label>

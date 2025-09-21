@@ -60,4 +60,29 @@ describe('flujo completo del asistente', () => {
     await user.click(screen.getByRole('button', { name: 'Guardar como…' }));
     expect(downloadFile).toHaveBeenCalled();
   });
+
+  it('permite limpiar y restablecer la fecha base y hora inicial sin errores', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    await user.click(screen.getByText('Nuevo', { selector: 'button' }));
+
+    await user.click(screen.getByRole('button', { name: 'Cliente', selector: 'button' }));
+
+    const schedule = await screen.findByLabelText('Horario de Cliente principal');
+    const dateInput = within(schedule).getByLabelText('Fecha base');
+    const timeInput = within(schedule).getByLabelText('Hora inicial');
+
+    await user.clear(dateInput);
+    await user.clear(timeInput);
+
+    await user.type(dateInput, '2024-05-01');
+    await user.type(timeInput, '10:30');
+
+    const addButton = within(schedule).getAllByText('+15 min')[0];
+    await user.click(addButton);
+
+    const deleteButtons = await within(schedule).findAllByRole('button', { name: 'Eliminar' });
+    expect(deleteButtons.length).toBeGreaterThan(0);
+  });
 });
