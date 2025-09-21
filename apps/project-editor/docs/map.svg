@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
+  <rect width="640" height="360" fill="#eef5fb" stroke="#143d59" stroke-width="4" />
+  <text x="320" y="36" text-anchor="middle" font-size="28" fill="#143d59">Simulación temporal en mapa</text>
+  <circle cx="180" cy="180" r="12" fill="#143d59" />
+  <text x="180" y="160" text-anchor="middle" font-size="16" fill="#143d59">Hotel</text>
+  <circle cx="440" cy="140" r="12" fill="#143d59" />
+  <text x="440" y="120" text-anchor="middle" font-size="16" fill="#143d59">Venue</text>
+  <circle cx="360" cy="260" r="12" fill="#143d59" />
+  <text x="360" y="240" text-anchor="middle" font-size="16" fill="#143d59">Oficinas</text>
+  <circle cx="200" cy="200" r="16" fill="#d23f3f" opacity="0.85" />
+  <text x="200" y="230" text-anchor="middle" font-size="16" fill="#d23f3f">Cliente</text>
+  <circle cx="400" cy="150" r="16" fill="#1b76d2" opacity="0.85" />
+  <text x="400" y="180" text-anchor="middle" font-size="16" fill="#1b76d2">Staff</text>
+  <text x="320" y="320" text-anchor="middle" font-size="14" fill="#4a7089">Controles: Play/Pausa · velocidades 0.5× a 4× · saltos ±5 / ±15 min · Ir a hora</text>
+</svg>
